@@ -22,19 +22,19 @@ codegen:
 	@npx sqd codegen
 
 
-typegen: crustVersions.json
+typegen: statemineVersions.json
 	@npx squid-substrate-typegen typegen.json
 
 
-crustVersions.json:
+statemineVersions.json:
 	@make explore
 
 
 explore:
 	@npx squid-substrate-metadata-explorer \
-		--chain wss://rpc-crust-mainnet.decoo.io \
-		--archive https://crust.indexer.gc.subsquid.io/v4/graphql \
-		--out crustVersions.json
+		--chain wss://statemine-rpc.dwellir.com \
+		--archive https://statemine.indexer.gc.subsquid.io/v4/graphql \
+		--out statemineVersions.json
 
 
 up:
