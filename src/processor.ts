@@ -339,7 +339,7 @@ async function getAssetAccountDetails(
 ): Promise<[Asset, Account, AssetBalance]> {
 
   const encodedAccountId = assertNotNull(encodeID(accountId, 2));
-  // const encodedAccountId = Buffer.from(accountId).toString('hex')
+
   const asset = await getOrCreate(store, Asset, assetId.toString());
   const account = await getOrCreate(store, Account, encodedAccountId);
   const assetBalance = await getOrCreate(store, AssetBalance, `${assetId}-${encodedAccountId}`);
