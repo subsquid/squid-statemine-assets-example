@@ -5,19 +5,19 @@ type Account @entity {
 }
 enum AssetStatus {
   ACTIVE
-  FREEZED
+  FROZEN
   DESTROYED
 }
 
 enum TransferType {
   REGULAR
-  DELEGATED #Transfer approved amount by a delegator
+  DELEGATE #Transfer approved amount by a delegator
   MINT
   BURN
   FREEZE
-  THAWED
-  CREATED
-  DESTROYED
+  THAW
+  CREATE
+  DESTROY
 }
 
 type Asset @entity {

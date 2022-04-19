@@ -1,5 +1,5 @@
 export enum AssetStatus {
   ACTIVE = "ACTIVE",
-  FREEZED = "FREEZED",
+  FROZEN = "FROZEN",
   DESTROYED = "DESTROYED",
 }

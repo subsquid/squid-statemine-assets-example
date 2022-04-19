@@ -31,7 +31,7 @@ export class Transfer {
   @ManyToOne_(() => Asset, {nullable: true})
   asset!: Asset | undefined | null
 
-  @Column_("varchar", {length: 9, nullable: false})
+  @Column_("varchar", {length: 8, nullable: false})
   type!: TransferType
 
   @Column_("text", {nullable: true})

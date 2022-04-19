@@ -102,7 +102,7 @@ export async function assetFrozen(ctx: EventHandlerContext): Promise<void> {
   const assetId = getAssetsAssetFrozenEvent(ctx);
   const asset = await getOrCreate(ctx.store, Asset, assetId.toString());
 
-  asset.status = AssetStatus.FREEZED;
+  asset.status = AssetStatus.FROZEN;
 
   await ctx.store.save(asset);
 }
@@ -133,7 +133,7 @@ export async function assetMetadata(ctx: EventHandlerContext): Promise<void> {
   asset.name = String.fromCharCode(...name);
   asset.symbol = String.fromCharCode(...symbol);
   asset.decimal = decimals;
-  asset.status = isFrozen ? AssetStatus.FREEZED : AssetStatus.ACTIVE;
+  asset.status = isFrozen ? AssetStatus.FROZEN : AssetStatus.ACTIVE;
 
   await ctx.store.save(asset);
 }
@@ -253,7 +253,7 @@ export async function assetTransferredApproved(
   transfer.from = assertNotNull(encodeID(owner, 2));
   transfer.delegator = assertNotNull(encodeID(delegate, 2));
   transfer.id = ctx.event.id;
-  transfer.type = TransferType.DELEGATED;
+  transfer.type = TransferType.DELEGATE;
   transfer.success = true;
   await ctx.store.save(transfer);
 }
@@ -267,7 +267,7 @@ export async function assetAccountFrozen(
     assetId,
     who
   );
-  assetBalance.status = AssetStatus.FREEZED;
+  assetBalance.status = AssetStatus.FROZEN;
   await ctx.store.save(assetBalance);
 
   const transfer = new Transfer();
@@ -305,7 +305,7 @@ export async function assetBalanceThawed(
   transfer.extrinisicId = ctx.extrinsic?.id;
   transfer.from = assertNotNull(encodeID(who, 2));
   transfer.id = ctx.event.id;
-  transfer.type = TransferType.THAWED;
+  transfer.type = TransferType.THAW;
   transfer.success = true;
   await ctx.store.save(transfer);
 }
