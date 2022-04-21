@@ -33,7 +33,7 @@ statemineVersions.json:
 explore:
 	@npx squid-substrate-metadata-explorer \
 		--chain wss://statemine-rpc.dwellir.com \
-		--archive https://statemine.indexer.gc.subsquid.io/v4/graphql \
+		--archive https://statemine-full.indexer.gc.subsquid.io/v4/graphql \
 		--out statemineVersions.json
 
 

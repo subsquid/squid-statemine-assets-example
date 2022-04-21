@@ -32,7 +32,7 @@ import {
 
 const processor = new SubstrateProcessor("statemine_example");
 processor.setDataSource({
-  archive: "https://statemine.indexer.gc.subsquid.io/v4/graphql",
+  archive: "https://statemine-full.indexer.gc.subsquid.io/v4/graphql",
   chain: "wss://statemine-rpc.dwellir.com",
 });
 
